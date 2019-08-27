@@ -1,9 +1,14 @@
-[frontends]
-frontend1.3c64.internal ansible_ssh_host=frontend1.3c64.example.opentlc.com
+[frontends] # These are the frontend servers
+frontend1 ansible_host=frontend1.ee1f.internal
 
-[apps]
-app1.3c64.internal ansible_ssh_host=app1.3c64.example.opentlc.com
-app2.3c64.internal ansible_ssh_host=app2.3c64.example.opentlc.com
+[apps] ## These are the apps servers
+app1 ansible_host=app1.ee1f.internal
+app2 ansible_host=app2.ee1f.internal
 
-[appdbs]
-appdb1.3c64.internal ansible_ssh_host=appdb1.3c64.example.opentlc.com
+[appdbs] # These are the appdb servers
+appdb1 ansible_host=appdb1.ee1f.internal
+
+[internal:children]
+frontends
+apps
+appdbs
